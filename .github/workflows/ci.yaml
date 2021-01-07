@@ -23,9 +23,6 @@ jobs:
           # [required]
           # The OS of the system that wishes to install Bazelisk. Can be 'darwin' or 'linux'
           os: "linux"
-
-      - name: Build
-        with:
           args: bazel build //...
       # - name: Cache Docker layers
       #   uses: actions/cache@v2
