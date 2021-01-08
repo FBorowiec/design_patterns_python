@@ -1,4 +1,5 @@
 name: CI
+
 on:
   pull_request:
     branches: [master]
@@ -8,24 +9,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Install Bazelisk
-        uses: vsco/bazelisk-action@v1.5.0
-        with:
-          # [required]
-          # Version of Bazelisk we would like to install, defaults to 1.5.0
-          version: "1.5.0"
-          # [required]
-          # Install path for Bazelisk binaries, defaults to ./.local/bin
-          bazel-install-path: "./.local/bin"
-          # [required]
-          # The OS of the system that wishes to install Bazelisk. Can be 'darwin' or 'linux'
-          os: "linux"
+    - name: Mount bazel cache
+      uses: actions/cache@v1
+      with:
+        path: "/home/runner/.cache/bazel"
+        key: bazel
 
-      - name: Build
-        run: bazel build //...
+    - name: Install bazelisk
+      run: |
+        curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64"
+        mkdir -p "${GITHUB_WORKSPACE}/bin/"
+        mv bazelisk-linux-amd64 "${GITHUB_WORKSPACE}/bin/bazel"
+        chmod +x "${GITHUB_WORKSPACE}/bin/bazel"
+
+    - name: Test
+      run: |
+        "${GITHUB_WORKSPACE}/bin/bazel" test //...
+
+    - name: Build
+      run: |
+        "${GITHUB_WORKSPACE}/bin/bazel" build //...
+
+
       # - name: Cache Docker layers
       #   uses: actions/cache@v2
       #   with:
