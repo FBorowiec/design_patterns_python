@@ -2,10 +2,10 @@ name: CI
 
 on:
   pull_request:
-    branches: [master]
+    types: [ opened, synchronize, reopened, ready_for_review ]
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,10 +24,18 @@ jobs:
         mv bazelisk-linux-amd64 "${GITHUB_WORKSPACE}/bin/bazel"
         chmod +x "${GITHUB_WORKSPACE}/bin/bazel"
 
-    # - name: Test
-    #  run: |
-    #    "${GITHUB_WORKSPACE}/bin/bazel" test //...
+    - name: Lint sanity check
+      run: |
+       "${GITHUB_WORKSPACE}/bin/bazel" run //scripts:black_check -- $(pwd)
+
+    - name: Pylint small checks
+      run: |
+       "${GITHUB_WORKSPACE}/bin/bazel" run //scripts:pylint -- $(bazel info --show_make_env workspace)
 
     - name: Build
       run: |
-        "${GITHUB_WORKSPACE}/bin/bazel" build //...
+        "${GITHUB_WORKSPACE}/bin/bazel" build --show_progress_rate_limit=10 --curses=yes --color=yes --terminal_columns=143 --show_timestamps --verbose_failures --announce_rc //...
+
+    - name: Test
+      run: |
+       "${GITHUB_WORKSPACE}/bin/bazel" test --test_output=all --nocache_test_results //...
