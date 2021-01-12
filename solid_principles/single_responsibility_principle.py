@@ -51,8 +51,18 @@ class PersistenceManager:
         file.close()
 
 
+# TEST--------------------------------------------------------------------------------------------|
+
+import unittest
+
+
+class TestJournalPersistenceManager(unittest.TestCase):
+    def test_journal_persistence_manager(self):
+        j = Journal()
+        j.add_entry("I cried today.")
+        j.add_entry("I ate a bug")
+        print(f"Journal entries:\n{j}")
+
+
 if __name__ == "__main__":
-    j = Journal()
-    j.add_entry("I cried today.")
-    j.add_entry("I ate a bug")
-    print(f"Journal entries:\n{j}")
+    unittest.main()

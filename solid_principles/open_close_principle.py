@@ -98,32 +98,46 @@ class BetterFilter(Filter):
                 yield item
 
 
+# TEST--------------------------------------------------------------------------------------------|
+
+import unittest
+
+
+class TestProduct(unittest.TestCase):
+    def setUp(self):
+        super().setUp()
+
+        apple = Product("Apple", Color.GREEN, Size.SMALL)
+        tree = Product("Tree", Color.GREEN, Size.LARGE)
+        house = Product("House", Color.BLUE, Size.LARGE)
+
+        self.products = [apple, tree, house]
+
+    def test_old_approach(self):
+        # OLD APPROACH
+        pf = ProductFilter()
+        print("Green products (old):")
+        for p in pf.filter_by_color(self.products, Color.GREEN):
+            print(f"- {p.name} is green")
+
+    def test_new_approach(self):
+        # NEW APPROACH
+        bf = BetterFilter()
+        print("Green products (new):")
+        green = ColorSpecification(Color.GREEN)
+        for p in bf.filter(self.products, green):
+            print(f"- {p.name} is green")
+
+        print("Large products:")
+        large = SizeSpecification(Size.LARGE)
+        for p in bf.filter(self.products, large):
+            print(f"- {p.name} is large")
+
+        print("Large and Blue items:")
+        large_blue = large & ColorSpecification(Color.BLUE)
+        for p in bf.filter(self.products, large_blue):
+            print(f"- {p.name} is large and blue")
+
+
 if __name__ == "__main__":
-    # OLD APPROACH
-    apple = Product("Apple", Color.GREEN, Size.SMALL)
-    tree = Product("Tree", Color.GREEN, Size.LARGE)
-    house = Product("House", Color.BLUE, Size.LARGE)
-
-    products = [apple, tree, house]
-
-    pf = ProductFilter()
-    print("Green products (old):")
-    for p in pf.filter_by_color(products, Color.GREEN):
-        print(f"- {p.name} is green")
-
-    # NEW APPROACH
-    bf = BetterFilter()
-    print("Green products (new):")
-    green = ColorSpecification(Color.GREEN)
-    for p in bf.filter(products, green):
-        print(f"- {p.name} is green")
-
-    print("Large products:")
-    large = SizeSpecification(Size.LARGE)
-    for p in bf.filter(products, large):
-        print(f"- {p.name} is large")
-
-    print("Large and Blue items:")
-    large_blue = large & ColorSpecification(Color.BLUE)
-    for p in bf.filter(products, large_blue):
-        print(f"- {p.name} is large and blue")
+    unittest.main()
