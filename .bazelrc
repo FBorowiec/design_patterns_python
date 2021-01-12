@@ -1,0 +1,4 @@
+build --test_env="GTEST_COLOR=1"  # Colored output
+test --test_output=all --nocache_test_results --test_env="GTEST_COLOR=1" --test_output=errors  # More verbose test output
+
+try-import user.bazelrc

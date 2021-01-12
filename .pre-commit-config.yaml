@@ -1,0 +1,16 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.4.0
+  hooks:
+    - id: no-commit-to-branch
+      args: ['--branch', 'master']
+    - id: check-added-large-files
+      args: ['--maxkb=1024']
+    - id: check-json
+    - id: check-xml
+    - id: check-yaml
+    - id: check-merge-conflict
+    - id: check-symlinks
+    - id: requirements-txt-fixer
+    - id: trailing-whitespace
+      args: [--markdown-linebreak-ext=md]

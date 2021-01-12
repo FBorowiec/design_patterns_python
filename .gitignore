@@ -5,6 +5,7 @@ __pycache__/
 
 # Bazel
 bazel*
+user.bazelrc
 
 # C extensions
 *.so
