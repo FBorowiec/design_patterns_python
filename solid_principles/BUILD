@@ -14,3 +14,13 @@ py_test(
     name = "liskov_substitution_principle",
     srcs = ["liskov_substitution_principle.py"],
 )
+
+py_test(
+    name = "interface_segregation_principle",
+    srcs = ["interface_segregation_principle.py"],
+)
+
+py_test(
+    name = "dependency_injection_principle",
+    srcs = ["dependency_injection_principle.py"],
+)

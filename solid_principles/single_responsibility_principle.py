@@ -56,7 +56,7 @@ class PersistenceManager:
 import unittest
 
 
-class TestJournalPersistenceManager(unittest.TestCase):
+class TestSingleResponsibility(unittest.TestCase):
     def test_journal_persistence_manager(self):
         j = Journal()
         j.add_entry("I cried today.")

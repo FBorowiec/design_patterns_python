@@ -103,7 +103,7 @@ class BetterFilter(Filter):
 import unittest
 
 
-class TestProduct(unittest.TestCase):
+class TestOpenClosePrinciple(unittest.TestCase):
     def setUp(self):
         super().setUp()
 

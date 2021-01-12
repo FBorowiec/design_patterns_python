@@ -63,7 +63,7 @@ def use_it(rc):
 import unittest
 
 
-class TestRectangle(unittest.TestCase):
+class TestLiskovSubstitution(unittest.TestCase):
     def test_rectangle_class(self):
         rc = Rectangle(2, 3)
         area = use_it(rc)
