@@ -4,7 +4,7 @@ import sys
 from pylint.lint import Run
 
 if __name__ == "__main__":
-    threshold = 10.0
+    threshold = 1.0
     target_dir = sys.argv[1]
 
     py_files = []
