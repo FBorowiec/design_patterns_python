@@ -1,5 +1,6 @@
 load("@rules_python//python:defs.bzl", "py_binary")
 load("@design_patterns_deps//:requirements.bzl", "requirement")
+load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
 py_binary(
     name = "black",
@@ -24,4 +25,14 @@ py_binary(
     main = "pylint_run.py",
     visibility = ["//visibility:public"],
     deps = [requirement("pylint")],
+)
+
+buildifier(
+    name = "buildifier",
+)
+
+buildifier(
+    name = "buildifier_check",
+    lint_mode = "warn",
+    mode = "check",
 )

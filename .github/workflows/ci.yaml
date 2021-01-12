@@ -32,6 +32,10 @@ jobs:
       run: |
        "${GITHUB_WORKSPACE}/bin/bazel" run //scripts:pylint -- $(bazel info --show_make_env workspace)
 
+    - name: Buildifier checks
+      run: |
+       "${GITHUB_WORKSPACE}/bin/bazel" run //scripts:buildifier_check
+
     - name: Build
       run: |
         "${GITHUB_WORKSPACE}/bin/bazel" build --show_progress_rate_limit=10 --curses=yes --color=yes --terminal_columns=143 --show_timestamps --verbose_failures --announce_rc //...
