@@ -2,8 +2,8 @@ repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v3.4.0
   hooks:
-    - id: no-commit-to-branch
-      args: ['--branch', 'master']
+    # - id: no-commit-to-branch
+    #   args: ['--branch', 'master']
     - id: check-added-large-files
       args: ['--maxkb=1024']
     - id: check-json
