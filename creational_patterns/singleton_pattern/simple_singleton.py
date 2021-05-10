@@ -21,7 +21,7 @@ import unittest
 
 
 class SingletonPattern(unittest.TestCase):
-    def test_builder_pattern(self):
+    def test_singleton_pattern(self):
         d1 = Database()
         d2 = Database()
         print("Initializer gets called twice!")
