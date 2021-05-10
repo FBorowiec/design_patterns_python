@@ -17,3 +17,11 @@ E.g., the initializer call is expensive:
 Want to prevent anyone creating additional copies.
 
 Need to take care of lazy instantiation.
+
+## Different realizations
+
+* custom allocator (worst)
+* decorator
+* metaclass (best)
+
+Laziness is easy, just init on the first request.
