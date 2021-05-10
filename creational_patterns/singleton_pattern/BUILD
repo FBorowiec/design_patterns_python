@@ -14,3 +14,8 @@ py_test(
     name = "singleton_metaclass",
     srcs = ["singleton_metaclass.py"],
 )
+
+py_test(
+    name = "monostate",
+    srcs = ["monostate.py"],
+)
