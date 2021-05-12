@@ -4,3 +4,8 @@ py_test(
     name = "builder_pattern",
     srcs = ["builder_pattern.py"],
 )
+
+py_test(
+    name = "builder_facets",
+    srcs = ["builder_facets.py"],
+)
