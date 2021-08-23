@@ -15,3 +15,8 @@
 ## **Description**
 
 It is a component responsible solely for the wholesale (non-piecewise creation of objects).
+
+- A factory method is a static method taht creates objects
+- A factory is any entity taht can take care of object creation
+- A factory can be external or reside inside the object as an inner class
+- Hierarchies of factories can be used to create related objects
