@@ -30,7 +30,14 @@ import unittest
 
 class PersonFactoryTest(unittest.TestCase):
     def test_create_person(self):
-        """"""
+        pf = PersonFactory()
+        p1 = pf.create_person("Joe")
+        p2 = pf.create_person("Jane")
+
+        self.assertTrue(p1.id_ == 0)
+        self.assertTrue(p1.name == "Joe")
+        self.assertTrue(p2.id_ == 1)
+        self.assertTrue(p2.name == "Jane")
 
 
 if __name__ == "__main__":
