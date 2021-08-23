@@ -21,10 +21,12 @@ class PersonBuilder:
     def __init__(self, person=Person()) -> None:
         self.person = person
 
+    # violates the open-closed principle
     @property
     def works(self):
         return PersonJobBuilder(self.person)
 
+    # violates the open-closed principle
     @property
     def lives(self):
         return PersonAddressBuilder(self.person)

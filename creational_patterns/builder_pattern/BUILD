@@ -9,3 +9,8 @@ py_test(
     name = "builder_facets",
     srcs = ["builder_facets.py"],
 )
+
+py_test(
+    name = "builder_inheritance",
+    srcs = ["builder_inheritance.py"],
+)
