@@ -1,6 +1,11 @@
 # **Prototype pattern**
 
-When it's easier to copy an existing object to fully initialize a new one.
+When it's easier to copy an existing object to fully initialize a new one:
+
+* To implement a prototype, partially construct an object and store it somewhere
+* Deep copy the prototype
+* Customize the resulting instance
+* A factory provides a convenient API to using the prototype
 
 ## **Intent**
 
