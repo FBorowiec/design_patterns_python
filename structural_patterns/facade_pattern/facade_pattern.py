@@ -51,7 +51,17 @@ class Console:
         return self.current_viewport.get_char_at(index)
 
 
+# TEST--------------------------------------------------------------------------------------------|
+
+import unittest
+
+
+class TestFacadePattern(unittest.TestCase):
+    def test_facade_pattern(self):
+        c = Console()
+        c.write("Hello!")
+        ch = c.get_char_at(0)
+
+
 if __name__ == "__main__":
-    c = Console()
-    c.write("Hello!")
-    ch = c.get_char_at(0)
+    unittest.main()

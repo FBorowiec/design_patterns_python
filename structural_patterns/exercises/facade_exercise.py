@@ -82,6 +82,16 @@ class MagicSquareGenerator:
         return square
 
 
+# TEST--------------------------------------------------------------------------------------------|
+
+import unittest
+
+
+class TestFacadePattern(unittest.TestCase):
+    def test_facade_pattern(self):
+        msg = MagicSquareGenerator()
+        print(msg.generate(3))
+
+
 if __name__ == "__main__":
-    msg = MagicSquareGenerator()
-    print(msg.generate(3))
+    unittest.main()
