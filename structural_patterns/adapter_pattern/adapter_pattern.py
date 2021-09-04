@@ -37,7 +37,7 @@ class LineToPointAdapter(list):
         self.count += 1
 
         print(
-            f"{self.count}: Generatign points for line "
+            f"{self.count}: Generating points for line "
             f"[{line.start.x},{line.start.y}]->"
             f"[{line.end.x},{line.end.y}]"
         )
@@ -70,7 +70,7 @@ import unittest
 
 
 class TestAdapterPattern(unittest.TestCase):
-    def test_dependency_injection(self):
+    def test_adapter_pattern(self):
         rs = [Rectangle(1, 1, 10, 10), Rectangle(3, 3, 6, 6)]
         draw(rs)
 
