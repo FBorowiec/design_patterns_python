@@ -6,6 +6,11 @@ py_test(
 )
 
 py_test(
+    name = "bridge_exercise",
+    srcs = ["bridge_exercise.py"],
+)
+
+py_test(
     name = "facade_exercise",
     srcs = ["facade_exercise.py"],
 )

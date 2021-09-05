@@ -2,6 +2,10 @@
 
 Connecting components together through abstractions.
 
+- Debouple abstaction from implementation
+- Both can exist as hierarchies
+- A stronger form of encapsulation
+
 ## **Motivation**
 
 - Bridge prevents a 'Cartesian product' complexity explosion. Example
