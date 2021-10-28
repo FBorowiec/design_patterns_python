@@ -3,15 +3,15 @@ A construct which adapts an existing interface `X` to conform to the required in
 """
 
 
+class Circle:
+    def __init__(self):
+        print("I AM A CIRCLE")
+
+
 class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-
-
-def draw_point(_):
-    """You are given this API"""
-    print(".", end="")
 
 
 class Line:
