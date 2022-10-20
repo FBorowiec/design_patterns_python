@@ -2,7 +2,7 @@
 * Use when object creation logic becomes too convoluted
 * Initializer is not descriptive
     * Name is always `__init__`
-    * Cannot overload with same sets of arguments wieh different names
+    * Cannot overload with same sets of arguments with different names
     * Can turn into 'optional parameter hell'
 * Wholesale object creation (non-piecewise, unlike Builder) can be outsourced to
     * A separate method (Factory Method)
@@ -13,6 +13,7 @@ Factory - It is a component responsible solely for the wholesale (non-piecewise 
 """
 
 import math
+import unittest
 from enum import Enum
 
 
@@ -22,9 +23,7 @@ class CoordinateSystem(Enum):
 
 
 class PointBad:
-    """
-    This kind of breaks the open-close principle and is increasingly difficult to expand with new coordnate systems
-    """
+    """Kind of breaks the open-close principle and is increasingly difficult to expand with new coordinate systems"""
 
     def __init__(self, a, b, system=CoordinateSystem.CARTESIAN):
         if system == CoordinateSystem.CARTESIAN:
@@ -55,9 +54,6 @@ class PointFactory:
     @staticmethod
     def new_polar_point(rho, theta):
         return PointGood(rho * math.cos(theta), rho * math.sin(theta))
-
-
-import unittest
 
 
 class FactoryPattern(unittest.TestCase):

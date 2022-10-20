@@ -9,9 +9,9 @@ When it's easier to copy an existing object to fully initialize a new one:
 
 ## **Intent**
 
-* Complicated objects (e.g., cars) aren't designed from scrath
+* Complicated objects (e.g., cars) aren't designed from scratch
     * They reiterate existing designs
-* An existing (partially or fully constructed) desing is a Prototype
+* An existing (partially or fully constructed) design is a Prototype
 * We make a copy (clone) the prototype and customize it
     * Requires 'deep copy' support
 * We make the cloning convenient (e.g., via a Factory)

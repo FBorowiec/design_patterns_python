@@ -1,9 +1,11 @@
 """
 If you have a hierarchy of types you can have a hierarchy of factories
 """
+import unittest
 from abc import ABC, abstractmethod
 from enum import Enum, auto
 from typing import Optional
+from unittest.mock import patch
 
 
 class HotDrink(ABC):
@@ -77,15 +79,11 @@ class HotDrinkMachine:
         return self.factories[idx][1].prepare(amount)
 
 
-import unittest
-from unittest.mock import patch
-
-
 class AbstractFactoryPattern(unittest.TestCase):
     def test_abstract_factory_pattern(self):
         entry = "tea"
         drink = make_drink(entry)
-        if drink is not None:
+        if drink:
             drink.consume()
 
     @patch("builtins.input")

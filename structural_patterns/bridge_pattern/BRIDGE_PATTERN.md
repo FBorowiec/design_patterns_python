@@ -2,17 +2,17 @@
 
 Connecting components together through abstractions.
 
-- Debouple abstaction from implementation
+- Decouple abstaction from implementation
 - Both can exist as hierarchies
 - A stronger form of encapsulation
 
 ## **Motivation**
 
 - Bridge prevents a 'Cartesian product' complexity explosion. Example
-    - Base class ThreadScheduler
-    - Can be preemptive or cooperative
-    - Can run on Windows or Unix
-    - End up with 2x2 scenario: WindowsPTS, UnixPTS, WindowsCTS, UnixCTS
+  * Base class ThreadScheduler
+  * Can be preemptive or cooperative
+  * Can run on Windows or Unix
+  * End up with 2x2 scenario: WindowsPTS, UnixPTS, WindowsCTS, UnixCTS
 
 ```bash
 
